@@ -47,7 +47,8 @@ index_name = "medical-bot"
 # Load the already stored vectors from Pinecone
 docsearch = PineconeVectorStore.from_existing_index(
     index_name=index_name,
-    embedding=embeddings
+    embedding=embeddings,
+    pinecone_api_key=PINECONE_API_KEY
 )
 
 
@@ -139,10 +140,10 @@ def chat():
 # ---------------------------------------------------
 if __name__ == '__main__': 
 
-    # Use PORT env var for cloud deployment (Render, Railway, etc.), fallback to 8080 locally
+    # Use PORT env var for cloud deployment, fallback to 8080 locally
     port = int(os.environ.get("PORT", 8080))
     app.run(
         host="0.0.0.0",
         port=port,
-        debug=False  # always False in production
+        debug=False
     )
