@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: medical-chatbot-rag
+    runtime: python
+    buildCommand: pip install -r requirement.txt
+    startCommand: gunicorn app1:app
+    envVars:
+      - key: PINECONE_API_KEY
+        sync: false
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: PYTHON_VERSION
+        value: 3.10.0

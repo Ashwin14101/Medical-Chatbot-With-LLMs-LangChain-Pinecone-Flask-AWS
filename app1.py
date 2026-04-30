@@ -139,9 +139,10 @@ def chat():
 # ---------------------------------------------------
 if __name__ == '__main__': 
 
-    # Run server on port 8080
+    # Use PORT env var for cloud deployment (Render, Railway, etc.), fallback to 8080 locally
+    port = int(os.environ.get("PORT", 8080))
     app.run(
         host="0.0.0.0",
-        port=8080,
-        debug=True
+        port=port,
+        debug=False  # always False in production
     )
