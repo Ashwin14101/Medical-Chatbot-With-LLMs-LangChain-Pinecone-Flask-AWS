@@ -43,8 +43,7 @@ def load_rag_chain():
     # Connect to existing Pinecone index
     docsearch = PineconeVectorStore.from_existing_index(
         index_name="medical-bot",
-        embedding=embeddings,
-        pinecone_api_key=PINECONE_API_KEY
+        embedding=embeddings
     )
 
     # Create retriever
