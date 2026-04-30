@@ -1,3 +1,6 @@
+import torch
+torch.classes.__path__ = []
+
 import streamlit as st
 import os
 from dotenv import load_dotenv
@@ -81,6 +84,12 @@ st.caption("Running with RAG • Gemini 2.5 Flash • Pinecone Vector DB")
 
 
 # ---------------------------------------------------
+# Pre-load the RAG Chain
+# ---------------------------------------------------
+with st.spinner("Initializing Medical Knowledge Base..."):
+    rag_chain = load_rag_chain()
+
+# ---------------------------------------------------
 # Chat History (session state)
 # ---------------------------------------------------
 if "messages" not in st.session_state:
@@ -106,7 +115,6 @@ if user_input := st.chat_input("What is on your mind?"):
     # Get RAG response
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            rag_chain = load_rag_chain()
             response  = rag_chain.invoke({"input": user_input})
             answer    = response["answer"]
         st.markdown(answer)

@@ -2,7 +2,7 @@ services:
   - type: web
     name: medical-chatbot-rag
     runtime: python
-    buildCommand: pip install -r requirement.txt
+    buildCommand: pip install -r requirements.txt
     startCommand: python -m streamlit run streamlit_app.py --server.port $PORT --server.address 0.0.0.0
     envVars:
       - key: PINECONE_API_KEY
