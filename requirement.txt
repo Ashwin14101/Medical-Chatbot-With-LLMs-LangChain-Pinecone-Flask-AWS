@@ -1,25 +1,25 @@
-# Core LangChain
-langchain>=0.2.17
-langchain-core>=0.2.43
-langchain-community>=0.2.16
-langchain-google-genai>=1.0.10
-langchain-pinecone>=0.1.3
+# Core LangChain (stable with Python 3.10)
+langchain==0.2.17
+langchain-core==0.2.43
+langchain-community==0.2.16
+langchain-google-genai==1.0.10
+langchain-pinecone==0.1.3
 
 # Google AI
-google-generativeai>=0.7.2
+google-generativeai==0.7.2
 
-# Pinecone (use pinecone not pinecone-client — same package, modern name)
-pinecone>=3.0.0
+# Pinecone
+pinecone-client==5.0.1
 
 # Embeddings / NLP
-sentence-transformers>=2.6.1
-transformers>=4.39.3
+sentence-transformers==2.6.1
+transformers==4.39.3
 
-# NumPy
-numpy>=1.24.0
+# NumPy (CRITICAL — must match sentence-transformers)
+numpy==1.26.4
 
 # App
-flask>=3.0.2
-pypdf>=4.2.0
-python-dotenv>=1.0.1
-streamlit>=1.32.0
+flask==3.0.2
+pypdf==4.2.0
+python-dotenv==1.0.1
+streamlit==1.32.0
