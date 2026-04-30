@@ -15,6 +15,20 @@
 
 ---
 
+## 📖 About
+
+This project is a **full-stack AI medical chatbot** built using state-of-the-art LLM and vector database technologies. It ingests medical reference PDFs, indexes them into a Pinecone vector store, and uses Google Gemini 2.5 Flash to answer clinical questions with context-grounded, hallucination-resistant responses.
+
+The system follows a clean **RAG (Retrieval-Augmented Generation)** architecture:
+- **Ingest**: Medical PDFs are chunked, embedded, and stored in Pinecone
+- **Retrieve**: User queries are matched against stored vectors using cosine similarity
+- **Generate**: Gemini LLM synthesizes a concise, grounded answer using the retrieved context
+- **Serve**: A Flask REST API and HTML chat UI provide a complete user interface
+
+Built as a portfolio project to demonstrate expertise in **LangChain, LLMs, vector databases, and production-grade Python web applications**.
+
+---
+
 ## 🧠 How It Works — RAG Pipeline
 
 ```
@@ -57,8 +71,8 @@ User Query ──▶│  similarity_search (k=3)
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Ashwin14101/medical-chatbot-rag.git
-cd medical-chatbot-rag
+git clone https://github.com/Ashwin14101/Medical-Chatbot-With-LLMs-LangChain-Pinecone-Flask-AWS.git
+cd Medical-Chatbot-With-LLMs-LangChain-Pinecone-Flask-AWS
 ```
 
 ### 2. Install dependencies
@@ -112,9 +126,10 @@ Open http://localhost:8080 in your browser.
 ## 📁 Project Structure
 
 ```
-medical-chatbot-rag/
-├── app.py                  # Flask app + RAG chain setup
-├── store_index.py          # One-time PDF ingestion + Pinecone indexing
+Medical-Chatbot-With-LLMs-LangChain-Pinecone-Flask-AWS/
+├── app.py                  # Original Flask app (basic version)
+├── app1.py                 # Updated Flask app with JSON API + improved comments
+├── store_index.py          # One-time PDF ingestion + Pinecone indexing script
 ├── src/
 │   ├── helper.py           # PDF loader, text splitter, embedding model
 │   └── prompt.py           # System prompt for the medical assistant
@@ -122,8 +137,12 @@ medical-chatbot-rag/
 │   └── chat.html           # Frontend chat UI
 ├── Static/                 # CSS / JS assets
 ├── data/                   # Place your medical PDFs here (gitignored)
-├── requirement.txt
-├── .env.example
+├── research/
+│   └── trials.ipynb        # Jupyter notebook for experimentation
+├── requirement.txt         # Python dependencies
+├── setup.py                # Package setup
+├── template.sh             # Project scaffolding script
+├── .env.example            # Environment variable template
 └── README.md
 ```
 
@@ -157,6 +176,14 @@ medical-chatbot-rag/
 ## 🤝 Contributing
 
 Pull requests are welcome! Please open an issue first for major changes.
+
+---
+
+## 👤 Author
+
+**Ashwin Kotha**
+- GitHub: [@Ashwin14101](https://github.com/Ashwin14101)
+- Project: [Medical-Chatbot-With-LLMs-LangChain-Pinecone-Flask-AWS](https://github.com/Ashwin14101/Medical-Chatbot-With-LLMs-LangChain-Pinecone-Flask-AWS)
 
 ---
 
