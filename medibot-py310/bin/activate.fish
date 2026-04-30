@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV '/Users/kothaashwin/Desktop/AI Agents/Medical/Medical-Chatbot-With-LLMs-LangChain-Pinecone-Flask-AWS/medibot-py310'
+set -gx VIRTUAL_ENV '/Users/kothaashwin/Desktop/AI Agents/Medical Chatbot/Medical-Chatbot-With-LLMs-LangChain-Pinecone-Flask-AWS/medibot-py310'
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

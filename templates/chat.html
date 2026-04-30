@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Medical AI Assistant</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="logo">🩺 MedAI</div>
+
+<ul class="nav-links">
+<li>Home</li>
+<li>Features</li>
+<li>About</li>
+</ul>
+
+<a href="#" class="start-btn">Try AI</a>
+
+</nav>
+
+
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+<div class="hero-left">
+
+<h1>AI Medical Assistant</h1>
+
+<p>
+Get instant medical information using AI powered by LLMs and vector search.
+</p>
+
+<a class="hero-button">Ask Medical Question</a>
+
+</div>
+
+
+<div class="hero-right">
+
+<div class="floating-card">🤖 AI Assistant</div>
+
+<div class="floating-card delay1">📚 Medical Knowledge</div>
+
+<div class="floating-card delay2">⚡ Instant Answers</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FEATURES -->
+
+<section class="features">
+
+<h2>Features</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+💬
+<h3>AI Chatbot</h3>
+<p>Ask medical questions instantly.</p>
+</div>
+
+<div class="feature-card">
+📚
+<h3>Medical Knowledge</h3>
+<p>Powered by vector database retrieval.</p>
+</div>
+
+<div class="feature-card">
+⚡
+<h3>Fast Response</h3>
+<p>Gemini LLM generates answers instantly.</p>
+</div>
+
+<div class="feature-card">
+🧠
+<h3>RAG System</h3>
+<p>Uses Retrieval Augmented Generation.</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FLOATING CHAT ICON -->
+
+<div id="chat-icon" onclick="toggleChat()">
+
+<img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
+
+</div>
+
+
+
+<!-- CHAT WINDOW -->
+
+<div id="chat-window">
+
+<div class="chat-header">
+
+Medical AI Assistant
+
+<span onclick="toggleChat()">✖</span>
+
+</div>
+
+
+<div id="chat-box"></div>
+
+
+<div class="chat-input">
+
+<input id="user-input" placeholder="Ask medical question..." onkeypress="handleKey(event)">
+
+<button onclick="sendMessage()">➤</button>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+function toggleChat(){
+
+const chat=document.getElementById("chat-window")
+
+chat.style.display=
+chat.style.display==="flex"?"none":"flex"
+
+}
+
+
+function handleKey(event){
+
+if(event.key==="Enter") sendMessage()
+
+}
+
+
+async function sendMessage(){
+
+const input=document.getElementById("user-input")
+
+const message=input.value.trim()
+
+if(!message) return
+
+addMessage(message,"user")
+
+input.value=""
+
+const response=await fetch("/chat",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({message:message})
+
+})
+
+const data=await response.json()
+
+addMessage(data.answer,"bot")
+
+}
+
+
+function addMessage(text,type){
+
+const chatBox=document.getElementById("chat-box")
+
+const msg=document.createElement("div")
+
+msg.className= type==="user"?"user-message":"bot-message"
+
+msg.innerText=text
+
+chatBox.appendChild(msg)
+
+chatBox.scrollTop=chatBox.scrollHeight
+
+}
+
+</script>
+
+</body>
+</html>

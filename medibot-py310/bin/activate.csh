@@ -8,7 +8,7 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-setenv VIRTUAL_ENV '/Users/kothaashwin/Desktop/AI Agents/Medical/Medical-Chatbot-With-LLMs-LangChain-Pinecone-Flask-AWS/medibot-py310'
+setenv VIRTUAL_ENV '/Users/kothaashwin/Desktop/AI Agents/Medical Chatbot/Medical-Chatbot-With-LLMs-LangChain-Pinecone-Flask-AWS/medibot-py310'
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/"bin":$PATH"
